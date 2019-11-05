@@ -14,7 +14,7 @@ import regression.TwoDRegressionModelImpl;
 public class TwoDRegressionModelImplTest {
 
   TwoDRegressionModelImpl r = new TwoDRegressionModelImpl();
-  
+
   @Test
   public void testOne() {
     List<Point> l = new ArrayList<>();

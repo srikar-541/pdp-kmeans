@@ -1,6 +1,7 @@
 package plotter;
 
-import java.awt.*;
+import java.awt.Graphics2D;
+import java.awt.Color;
 import java.awt.geom.AffineTransform;
 import java.awt.image.BufferedImage;
 import java.io.FileOutputStream;
@@ -13,9 +14,9 @@ import javax.imageio.ImageIO;
 /**
  * This class is a plotter of data onto an image. It provides operations to add points, lines and
  * circles to draw on the image.
- * <p>
- * It is also possible to set the size of the image to be created, along with the range of the data
- * that is provided to it.
+ *
+ * <p>It is also possible to set the size of the image to be created, along with the range of the
+ * data that is provided to it.
  */
 public class ImagePlotter {
   private List<Integer> points;
@@ -32,6 +33,9 @@ public class ImagePlotter {
   private int width;
   private int height;
 
+  /**
+   * This is default a constructor  for this class.
+   */
   public ImagePlotter() {
     reset();
     pointSize = 3;
@@ -39,10 +43,10 @@ public class ImagePlotter {
   }
 
   /**
-   * Add a point to be drawn on the image
+   * Add a point to be drawn on the image.
    *
-   * @param x
-   * @param y
+   * @param x the x coordinate.
+   * @param y the y coordinate.
    */
   public void addPoint(int x, int y) {
     points.add(x);
@@ -51,11 +55,11 @@ public class ImagePlotter {
   }
 
   /**
-   * Add a point to be drawn on the image with the specific color
+   * Add a point to be drawn on the image with the specific color.
    *
-   * @param x
-   * @param y
-   * @param col
+   * @param x   the x coordinate.
+   * @param y   the y coordinate.
+   * @param col the color of the point.
    */
   public void addPoint(int x, int y, Color col) {
     points.add(x);
@@ -64,12 +68,12 @@ public class ImagePlotter {
   }
 
   /**
-   * Add a line to be drawn on the image
+   * Add a line to be drawn on the image.
    *
-   * @param x1
-   * @param y1
-   * @param x2
-   * @param y2
+   * @param x1 the x coordinate of the first point.
+   * @param y1 the y coordinate of the first point.
+   * @param x2 the x coordinate of the second point.
+   * @param y2 the y coordinate of the second point.
    */
   public void addLine(int x1, int y1, int x2, int y2) {
     lines.add(x1);
@@ -80,13 +84,13 @@ public class ImagePlotter {
   }
 
   /**
-   * Add a line to be drawn on to the image with the specified color
+   * Add a line to be drawn on to the image with the specified color.
    *
-   * @param x1
-   * @param y1
-   * @param x2
-   * @param y2
-   * @param col
+   * @param x1  the x coordinate of the first point.
+   * @param y1  the y coordinate of the first point.
+   * @param x2  the x coordinate of the second point.
+   * @param y2  the y coordinate of the second point.
+   * @param col color of the line.
    */
   public void addLine(int x1, int y1, int x2, int y2, Color col) {
     lines.add(x1);
@@ -97,11 +101,11 @@ public class ImagePlotter {
   }
 
   /**
-   * Add a circle to be drawn on to the image
+   * Add a circle to be drawn on to the image.
    *
-   * @param x
-   * @param y
-   * @param radius
+   * @param x      the x coordinate of the center of the circle.
+   * @param y      the y coordinate of the center of the circle.
+   * @param radius the radius of the circle.
    */
   public void addCircle(int x, int y, int radius) {
     circles.add(x);
@@ -113,10 +117,10 @@ public class ImagePlotter {
   /**
    * Add a circle to be drawn on to the image with the specified color
    *
-   * @param x
-   * @param y
-   * @param radius
-   * @param col
+   * @param x      the x coordinate of the center of the circle.
+   * @param y      the y coordinate of the center of the circle.
+   * @param radius the radius of the circle.
+   * @param col    the color of the circle.
    */
   public void addCircle(int x, int y, int radius, Color col) {
     circles.add(x);
@@ -127,12 +131,12 @@ public class ImagePlotter {
 
   /**
    * Set the range in which all the added points, circles and lines lie. This provides the range of
-   * the data as added to this plotter
+   * the data as added to this plotter.
    *
-   * @param xmin
-   * @param xmax
-   * @param ymin
-   * @param ymax
+   * @param xmin the min x.
+   * @param xmax the max x.
+   * @param ymin the min y.
+   * @param ymax the max y.
    */
   public void setDimensions(int xmin, int xmax, int ymin, int ymax) {
     this.xmin = xmin;
@@ -157,10 +161,10 @@ public class ImagePlotter {
   }
 
   /**
-   * Draw all the shapes added thus far to an image and save it to the specific path
+   * Draw all the shapes added thus far to an image and save it to the specific path.
    *
-   * @param path
-   * @throws IOException
+   * @param path the location  where the file should be written.
+   * @throws IOException if permissions to write are  missing.
    */
   public void write(String path) throws IOException {
     BufferedImage image = new BufferedImage(width, height, BufferedImage
@@ -225,18 +229,18 @@ public class ImagePlotter {
   }
 
   /**
-   * Set the width of the image that is created by this plotter
+   * Set the width of the image that is created by this plotter.
    *
-   * @param w
+   * @param w width of the image.
    */
   public void setWidth(int w) {
     width = w;
   }
 
   /**
-   * Set the height of the image that is created by this plotter
+   * Set the height of the image that is created by this plotter.
    *
-   * @param h
+   * @param h height of the image.
    */
 
   public void setHeight(int h) {
