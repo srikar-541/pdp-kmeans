@@ -14,7 +14,10 @@ import kmeans.TwoDPointClusterModelImpl;
 import point.Point;
 import point.TwoDPoint;
 
-class TwoDPointClusterModelImplTest {
+/**
+ * This class contains tests for the KMeansClustering model.
+ */
+public class TwoDPointClusterModelImplTest {
 
   TwoDPointClusterModelImpl t;
   KMeansConfigurations config;
