@@ -15,7 +15,7 @@ import point.Point;
 import regression.TwoDRegressionModelImpl;
 import regression.TwoDRegressionViewImpl;
 
-public class Tester {
+public class Program {
 
   public static void main(String[] args) throws FileNotFoundException {
     Scanner sc = new Scanner(System.in);
