@@ -16,13 +16,17 @@ import regression.TwoDRegressionModelImpl;
 import regression.TwoDRegressionViewImpl;
 
 /**
- * This is the runner program for our MVC model. Takes input "0" or "1" followed by filename
- * 0 for  KMeans Clustering
- * 1 for Linear Regression.
- * The resulting images are written in directory program_output.
+ * This is the runner program for our MVC model. Takes input "0" or "1" followed by filename 0 for
+ * KMeans Clustering 1 for Linear Regression. The resulting images are written in directory
+ * program_output.
  */
 public class Program {
 
+  /**
+   * Main method for running our program.
+   * @param args String input as described above.
+   * @throws FileNotFoundException if file specified by string path is not found.
+   */
   public static void main(String[] args) throws FileNotFoundException {
     Scanner sc = new Scanner(System.in);
     int n = sc.nextInt();

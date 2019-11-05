@@ -1,23 +1,14 @@
 package abstraction;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-import kmeans.KMeansConfigurations;
-import kmeans.TwoDClusterViewImpl;
-import kmeans.TwoDPointClusterModelImpl;
 import mvc.Controller;
 import mvc.Model;
 import mvc.View;
 import point.Point;
 import point.TwoDPoint;
-import regression.TwoDRegressionModelImpl;
-import regression.TwoDRegressionViewImpl;
 
 /**
  * This class is an abstraction of the TwoDimension Data Fitting controllers. It offers methods like
@@ -60,7 +51,7 @@ public class DataFittingController implements Controller {
    *
    * @return It returns a list of points after parsing the data source.
    */
-  protected List<Point> readData() {
+  private List<Point> readData() {
     List<Point> points = new ArrayList<>();
     Scanner sc = new Scanner(this.in);
     while (sc.hasNextLine()) {

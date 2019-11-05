@@ -8,6 +8,9 @@ import point.Point;
 import point.TwoDPoint;
 import regression.TwoDRegressionModelImpl;
 
+/**
+ * This class carries tests for testing the TwoDLinearRegressionModelImpl class.
+ */
 public class TwoDRegressionModelImplTest {
 
   TwoDRegressionModelImpl r = new TwoDRegressionModelImpl();

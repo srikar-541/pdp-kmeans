@@ -26,10 +26,20 @@ import point.Point;
 import regression.TwoDRegressionModelImpl;
 import regression.TwoDRegressionViewImpl;
 
+/**
+ * This  class is meant for the sole purpose of testing the  controller of  our application.
+ */
 public class DataFittingControllerTest {
 
   Controller controller;
 
+  /**
+   * This method is for the sole purpose of testing I/O between Controller and a Mock Model that
+   * mimics a Model by implementing it. It asserts whether the input passed to the  model from the
+   * controller  is the same as the input received by the model.
+   *
+   * @throws FileNotFoundException if the file is not found.
+   */
   @Test
   public void testControllerModelRegression() throws FileNotFoundException {
     StringBuilder log = new StringBuilder();
@@ -44,6 +54,13 @@ public class DataFittingControllerTest {
     Assert.assertEquals("123456", model.toString());
   }
 
+  /**
+   * This method is for the sole purpose of testing I/O between Controller and a mock View that
+   * mimics a View by implementing it. It asserts whether the input passed to the view from the
+   * controller  is the same as the input received by the view.
+   *
+   * @throws FileNotFoundException if the file is not found.
+   */
   @Test
   public void testControllerViewRegression() throws FileNotFoundException {
     StringBuilder log1 = new StringBuilder();
@@ -64,18 +81,25 @@ public class DataFittingControllerTest {
   private String readData(File file) throws FileNotFoundException {
     Scanner sc = new Scanner(file);
     StringBuilder sb = new StringBuilder();
-    while(sc.hasNextLine()) {
+    while (sc.hasNextLine()) {
       String[] point = sc.nextLine().split(" ");
       if (point.length != 2) {
         throw new IllegalArgumentException("Invalid data");
       }
-      String xCoordinate = Double.parseDouble(point[0])+"";
-      String yCoordinate = Double.parseDouble(point[1])+"";
-      sb.append(xCoordinate+" "+yCoordinate+"\n");
+      String xCoordinate = Double.parseDouble(point[0]) + "";
+      String yCoordinate = Double.parseDouble(point[1]) + "";
+      sb.append(xCoordinate + " " + yCoordinate + "\n");
     }
     return sb.toString();
   }
 
+  /**
+   * This method is for the sole purpose of testing I/O between Controller and a Mock Model that
+   * mimics a Model by implementing it. It asserts whether the input passed to the  model from the
+   * controller  is the same as the input received by the model.
+   *
+   * @throws FileNotFoundException if the file is not found.
+   */
   @Test
   public void testControllerModel2Regression() {
     StringBuilder logger = new StringBuilder();
@@ -89,6 +113,13 @@ public class DataFittingControllerTest {
     Assert.assertEquals("15678", model.toString());
   }
 
+  /**
+   * This method is for the sole purpose of testing I/O between Controller and a Mock View that
+   * mimics a View by implementing it. It asserts whether the input passed to the view from the
+   * controller  is the same as the input received by the view.
+   *
+   * @throws FileNotFoundException if the file is not found.
+   */
   @Test
   public void testControllerView2Regression() {
     Model model = new TwoDRegressionModelImpl();
@@ -101,10 +132,17 @@ public class DataFittingControllerTest {
     controller.process();
     Assert.assertEquals("-0.7071067811865475 0.7071067811865476 -2.220446049250313E-16 ",
             log1.toString());
-    Assert.assertEquals(s,log2.toString());
+    Assert.assertEquals(s, log2.toString());
     Assert.assertEquals("12345", view.toString());
   }
 
+  /**
+   * This method is for the sole purpose of testing I/O between Controller and a Mock Model that
+   * mimics a Model by implementing it. It asserts whether the input passed to the  model from the
+   * controller  is the same as the input received by the model.
+   *
+   * @throws FileNotFoundException if the file is not found.
+   */
   @Test
   public void testControllerModelClustering() throws FileNotFoundException {
     StringBuilder log = new StringBuilder();
@@ -119,6 +157,13 @@ public class DataFittingControllerTest {
     Assert.assertEquals("123456", model.toString());
   }
 
+  /**
+   * This method is for the sole purpose of testing I/O between Controller and a mock View that
+   * mimics a View by implementing it. It asserts whether the input passed to the view from the
+   * controller  is the same as the input received by the view.
+   *
+   * @throws FileNotFoundException if the file is not found.
+   */
   @Test
   public void testControllerViewClustering() throws FileNotFoundException {
     StringBuilder log1 = new StringBuilder();
@@ -138,6 +183,13 @@ public class DataFittingControllerTest {
     Assert.assertEquals("123456", view.toString());
   }
 
+  /**
+   * This method is for the sole purpose of testing I/O between Controller and a Mock Model that
+   * mimics a Model by implementing it. It asserts whether the input passed to the  model from the
+   * controller  is the same as the input received by the model.
+   *
+   * @throws FileNotFoundException if the file is not found.
+   */
   @Test
   public void testControllerModel2Clustering() {
     StringBuilder logger = new StringBuilder();
@@ -151,6 +203,13 @@ public class DataFittingControllerTest {
     Assert.assertEquals("15678", model.toString());
   }
 
+  /**
+   * This method is for the sole purpose of testing I/O between Controller and a mock View that
+   * mimics a View by implementing it. It asserts whether the input passed to the view from the
+   * controller  is the same as the input received by the view.
+   *
+   * @throws FileNotFoundException if the file is not found.
+   */
   @Test
   public void testControllerView2Clustering() {
     KMeansConfigurations config = KMeansConfigurations.getBuilder()
@@ -163,17 +222,21 @@ public class DataFittingControllerTest {
     Reader in = new StringReader(s);
     Controller controller = new DataFittingController(in, model, view);
     controller.process();
-    Assert.assertEquals("1.0 1.0\n" +
-            "2.0 2.0\n" +
-            "3.0 3.0\n" +
-            "4.0 4.0", log1.toString());
-    Assert.assertEquals("1.0 1.0\n" +
-            "2.0 2.0\n" +
-            "3.0 3.0\n" +
-            "4.0 4.0", log2.toString());
+    Assert.assertEquals("1.0 1.0\n"
+            + "2.0 2.0\n"
+            + "3.0 3.0\n"
+            + "4.0 4.0", log1.toString());
+    Assert.assertEquals("1.0 1.0\n"
+            + "2.0 2.0\n"
+            + "3.0 3.0\n"
+            + "4.0 4.0", log2.toString());
     Assert.assertEquals("12345", view.toString());
   }
 
+  /**
+   * This  method  tests  what happens if invalid data is read by the controller. Invalid data can
+   * be data  with no space delimiter, or a different delimiter such as a comma.
+   */
   @Test(expected = IllegalArgumentException.class)
   public void testInvalid1() {
     KMeansConfigurations config = KMeansConfigurations.getBuilder()
@@ -187,16 +250,20 @@ public class DataFittingControllerTest {
     Controller controller = new DataFittingController(in, model, view);
     controller.process();
     Assert.assertEquals("1.0 1.0\n" +
-            "2.0 2.0\n" +
-            "3.0 3.0\n" +
-            "4.0 4.0", log1.toString());
-    Assert.assertEquals("1.0 1.0\n" +
-            "2.0 2.0\n" +
-            "3.0 3.0\n" +
-            "4.0 4.0", log2.toString());
+            "2.0 2.0\n"
+            + "3.0 3.0\n"
+            + "4.0 4.0", log1.toString());
+    Assert.assertEquals("1.0 1.0\n"
+            + "2.0 2.0\n"
+            + "3.0 3.0\n"
+            + "4.0 4.0", log2.toString());
     Assert.assertEquals("12345", view.toString());
   }
 
+  /**
+   * This  method  tests  what happens if invalid data is read by the controller. Invalid data can
+   * be data  with no space delimiter, or a different delimiter such as a comma.
+   */
   @Test(expected = IllegalArgumentException.class)
   public void testInvalid2() {
     Model model = new TwoDRegressionModelImpl();
@@ -209,7 +276,7 @@ public class DataFittingControllerTest {
     controller.process();
     Assert.assertEquals("-0.7071067811865475 0.7071067811865476 -2.220446049250313E-16 ",
             log1.toString());
-    Assert.assertEquals(s,log2.toString());
+    Assert.assertEquals(s, log2.toString());
     Assert.assertEquals("12345", view.toString());
   }
 }
