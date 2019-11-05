@@ -1,25 +1,35 @@
 package kmeans;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+
 import mvc.Model;
 import point.Point;
 
+/**
+ * This class abstracts the common functionality of any TwoD ClusterModelImpl. It has a method which
+ * fits  a  K-Means Clustering model to the data. It also has several helper  methods  which are
+ * called  by  the  fit() method.
+ */
 abstract class PointClusterModel implements Model<Map<Point, List<Point>>> {
 
   private Map<Point, List<Point>> clusters;
   private Double previousClusteringError;
   private final KMeansConfigurations config;
 
-  PointClusterModel(KMeansConfigurations config) {
+  protected PointClusterModel(KMeansConfigurations config) {
     this.config = config;
   }
 
   @Override
   public Map<Point, List<Point>> fit(List<Point> points) {
+    if (config.getClusterCount() > points.size()) {
+      throw new IllegalArgumentException();
+    }
     double ransacError = Double.POSITIVE_INFINITY;
     Map<Point, List<Point>> bestClustering = null;
 
@@ -39,8 +49,7 @@ abstract class PointClusterModel implements Model<Map<Point, List<Point>>> {
             initializeClusters(newCenters);
             assignCentersToPoints(points); /* Step 3 */
             this.previousClusteringError = newError;
-          }
-          else {
+          } else {
             if (newError < ransacError) {
               ransacError = newError;
               bestClustering = this.clusters;

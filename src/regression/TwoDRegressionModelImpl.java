@@ -9,17 +9,18 @@ import point.Point;
 import point.TwoDPoint;
 
 /**
- * This model is an implementation of the Model interface which takes in a generic argument.
- * This implementation requires the view to return data of type List of Double
- * after processing the 2D points.
+ * This model is an implementation of the Model interface which takes in a generic argument. This
+ * implementation requires the view to return data of type List of Double after processing the 2D
+ * points.
  */
 public class TwoDRegressionModelImpl implements Model<List<Double>> {
 
   /**
-   * This method applies the regression algorithm on the given set of points.
-   * It returns a set of constants which are regression constants used for plotting.
-   * @param     points The list of points for which model has to be fit.
-   * @return    List of constants which represent a line.
+   * This method applies the regression algorithm on the given set of points. It returns a set of
+   * constants which are regression constants used for plotting.
+   *
+   * @param points The list of points for which model has to be fit.
+   * @return List of constants which represent a line.
    */
   @Override
   public List<Double> fit(List<Point> points) {
@@ -38,7 +39,7 @@ public class TwoDRegressionModelImpl implements Model<List<Double>> {
     double sXX = sumSquare.getX();
     double sYY = sumSquare.getY();
 
-    double t = getT(sXX,sYY,sXY);
+    double t = getT(sXX, sYY, sXY);
     double a = Math.cos(t / 2);
     double b = Math.sin(t / 2);
     double c = 0 - a * meanPoint.getX() - b * meanPoint.getY();

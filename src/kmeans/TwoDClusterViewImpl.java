@@ -6,20 +6,21 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
+
 import mvc.View;
 import point.Point;
 import point.TwoDPoint;
 import abstraction.AbstractTwoDView;
 
 /**
- * This class represents a 2D implementation of the View for a Clustering Algorithm.
- * This needs data of type Map of Point and List of points to plot data on image plotter.
+ * This class represents a 2D implementation of the View for a Clustering Algorithm. This needs data
+ * of type Map of Point and List of points to plot data on image plotter.
  */
 public class TwoDClusterViewImpl extends AbstractTwoDView implements View<Map<Point, List<Point>>> {
 
   /**
-   * This creates a new TwoDClusterViewImpl. It creates a new Image Plotter
-   * object which is used to plot the line.
+   * This creates a new TwoDClusterViewImpl. It creates a new Image Plotter object which is used to
+   * plot the line.
    */
   public TwoDClusterViewImpl() {
     super();
@@ -51,7 +52,7 @@ public class TwoDClusterViewImpl extends AbstractTwoDView implements View<Map<Po
   /**
    * This method plots clusters and its corresponding points which are stores inside a map.
    *
-   * @param     clusters It is a map of Point and List of points which contains clustering.
+   * @param clusters It is a map of Point and List of points which contains clustering.
    */
   @Override
   public void plot(Map<Point, List<Point>> clusters) {

@@ -6,7 +6,6 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 import java.util.Scanner;
 
 import kmeans.KMeansConfigurations;
@@ -21,9 +20,8 @@ import regression.TwoDRegressionModelImpl;
 import regression.TwoDRegressionViewImpl;
 
 /**
- * This class is an abstraction of the TwoDimension controllers.
- * It offers methods like reading data from a data source which will be passed
- * to the constructor.
+ * This class is an abstraction of the TwoDimension Data Fitting controllers. It offers methods like
+ * reading data from a data source which will be passed to the constructor.
  */
 public class DataFittingController implements Controller {
 
@@ -32,12 +30,13 @@ public class DataFittingController implements Controller {
   private View view;
 
   /**
-   * This constructor is an abstraction of the child class TwoDControllers.
-   * It takes in Model object, View object, data source from which data has to be fed
-   * as inputs and creates an object.
-   * @param     in Data source from which data is to be read.
-   * @param     model Data fitting Model object which has to be fit to the data given.
-   * @param     view  View object which has to be called after data fitting is done.
+   * This constructor is an abstraction of the child class TwoDControllers. It takes in Model
+   * object, View object, data source from which data has to be fed as inputs and creates an
+   * object.
+   *
+   * @param in    Data source from which data is to be read.
+   * @param model Data fitting Model object which has to be fit to the data given.
+   * @param view  View object which has to be called after data fitting is done.
    */
   public DataFittingController(Readable in, Model model, View view) {
     this.in = in;
@@ -46,8 +45,8 @@ public class DataFittingController implements Controller {
   }
 
   /**
-   * This method processes the data and plotting of the data by making calls
-   * to the model and the view by transferring data received from the model to the view.
+   * This method processes the data and plotting of the data by making calls to the model and the
+   * view by transferring data received from the model to the view.
    */
   @Override
   public void process() {
@@ -58,7 +57,8 @@ public class DataFittingController implements Controller {
 
   /**
    * This function parses points from a data source which can be a file, console etc.
-   * @return    It returns a list of points after parsing the data source.
+   *
+   * @return It returns a list of points after parsing the data source.
    */
   protected List<Point> readData() {
     List<Point> points = new ArrayList<>();
@@ -79,30 +79,4 @@ public class DataFittingController implements Controller {
     return points;
   }
 
-  public static void main(String[] args) throws FileNotFoundException {
-    Scanner sc = new Scanner(System.in);
-    int n = sc.nextInt();
-    BufferedReader bufferedReader;
-    File file;
-    Model model;
-    View view;
-    Controller c;
-    if (n == 0) {
-      file = new File("data/clusterdata-2.txt");
-      KMeansConfigurations config = KMeansConfigurations.getBuilder()
-              .clusterCount(2).iterations(10).ransac(10).threshold(0.01).distanceCalculator(Point::getEuclideanDistance)
-              .build();
-      model = new TwoDPointClusterModelImpl(config);
-      view = new TwoDClusterViewImpl();
-    }
-    else {
-      file = new File("data/linedata-1.txt");
-      model = new TwoDRegressionModelImpl();
-      view = new TwoDRegressionViewImpl();
-    }
-
-    bufferedReader = new BufferedReader(new FileReader(file));
-    c = new DataFittingController(bufferedReader, model, view);
-    c.process();
-  }
 }

@@ -2,7 +2,7 @@ package point;
 
 /**
  * This class is a 2D implementation of  the interface Point.
- * It represents a 2D point which has coordinates (x,y).
+ * It represents a 2D point which has Cartesian coordinates (x,y).
  * It offers methods which gives operations on the points like
  * adding, distance from another point etc.
  */

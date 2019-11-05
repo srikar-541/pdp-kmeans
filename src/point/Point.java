@@ -1,8 +1,8 @@
 package point;
 
 /**
- * This interface represents a point of data. A point can be multidimensional. This interface also
- * offers methods on a Point.
+ * This interface represents a point of data. A point can have more than one representation like
+ * Polar coordinates or Cartesian coordinates. This interface offers methods on a Point.
  */
 public interface Point {
 

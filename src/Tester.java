@@ -31,8 +31,7 @@ public class Tester {
               .build();
       model = new TwoDPointClusterModelImpl(config);
       view = new TwoDClusterViewImpl();
-    }
-    else {
+    } else {
       model = new TwoDRegressionModelImpl();
       view = new TwoDRegressionViewImpl();
     }

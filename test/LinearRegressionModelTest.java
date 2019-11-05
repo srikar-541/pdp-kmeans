@@ -1,17 +1,12 @@
-import org.junit.Assert;
 import org.junit.Test;
 
-import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.Reader;
 import java.io.StringReader;
 import java.util.Scanner;
 
 import abstraction.DataFittingController;
-import mock.MockModel;
-import kmeans.TwoDPointClusterModelImpl;
 import mvc.Controller;
 import mvc.Model;
 import mvc.View;

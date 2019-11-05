@@ -13,10 +13,10 @@ import java.util.Scanner;
 
 import abstraction.DataFittingController;
 import kmeans.KMeansConfigurations;
-import mock.MockModel;
-import mock.MockModel2;
-import mock.MockView;
-import mock.MockView2;
+import mock.RegressionMockModel;
+import mock.ClusterMockModel;
+import mock.RegressionMockView;
+import mock.ClusterMockView;
 import kmeans.TwoDClusterViewImpl;
 import kmeans.TwoDPointClusterModelImpl;
 import mvc.Controller;
@@ -33,7 +33,7 @@ public class DataFittingControllerTest {
   @Test
   public void testControllerModelRegression() throws FileNotFoundException {
     StringBuilder log = new StringBuilder();
-    MockModel model = new MockModel(log, 123456);
+    RegressionMockModel model = new RegressionMockModel(log, 123456);
     File file = new File("data/linedata-1.txt");
     String expectedString = readData(file);
     BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
@@ -48,7 +48,7 @@ public class DataFittingControllerTest {
   public void testControllerViewRegression() throws FileNotFoundException {
     StringBuilder log1 = new StringBuilder();
     StringBuilder log2 = new StringBuilder();
-    MockView view = new MockView(log1, log2, 123456);
+    RegressionMockView view = new RegressionMockView(log1, log2, 123456);
     Model<List<Double>> model = new TwoDRegressionModelImpl();
     File file = new File("data/linedata-1.txt");
     String expectedString = readData(file);
@@ -79,7 +79,7 @@ public class DataFittingControllerTest {
   @Test
   public void testControllerModel2Regression() {
     StringBuilder logger = new StringBuilder();
-    Model model = new MockModel(logger, 15678);
+    Model model = new RegressionMockModel(logger, 15678);
     View view = new TwoDRegressionViewImpl();
     String s = "1.0 1.0\n2.0 2.0\n3.0 3.0\n4.0 4.0\n";
     Reader in = new StringReader(s);
@@ -94,7 +94,7 @@ public class DataFittingControllerTest {
     Model model = new TwoDRegressionModelImpl();
     StringBuilder log1 = new StringBuilder();
     StringBuilder log2 = new StringBuilder();
-    View view = new MockView(log1, log2, 12345);
+    View view = new RegressionMockView(log1, log2, 12345);
     String s = "1.0 1.0\n2.0 2.0\n3.0 3.0\n4.0 4.0\n";
     Reader in = new StringReader(s);
     Controller controller = new DataFittingController(in, model, view);
@@ -108,7 +108,7 @@ public class DataFittingControllerTest {
   @Test
   public void testControllerModelClustering() throws FileNotFoundException {
     StringBuilder log = new StringBuilder();
-    MockModel2 model = new MockModel2(log, 123456);
+    ClusterMockModel model = new ClusterMockModel(log, 123456);
     File file = new File("data/clusterdata-1.txt");
     String expectedString = readData(file);
     BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
@@ -123,7 +123,7 @@ public class DataFittingControllerTest {
   public void testControllerViewClustering() throws FileNotFoundException {
     StringBuilder log1 = new StringBuilder();
     StringBuilder log2 = new StringBuilder();
-    MockView view = new MockView(log1, log2, 123456);
+    RegressionMockView view = new RegressionMockView(log1, log2, 123456);
     KMeansConfigurations config = KMeansConfigurations.getBuilder()
             .clusterCount(2).build();
     Model<Map<Point, List<Point>>> model = new TwoDPointClusterModelImpl(config);
@@ -141,7 +141,7 @@ public class DataFittingControllerTest {
   @Test
   public void testControllerModel2Clustering() {
     StringBuilder logger = new StringBuilder();
-    Model model = new MockModel2(logger, 15678);
+    Model model = new ClusterMockModel(logger, 15678);
     View view = new TwoDClusterViewImpl();
     String s = "1.0 1.0\n2.0 2.0\n3.0 3.0\n4.0 4.0\n";
     Reader in = new StringReader(s);
@@ -158,7 +158,7 @@ public class DataFittingControllerTest {
     Model model = new TwoDPointClusterModelImpl(config);
     StringBuilder log1 = new StringBuilder();
     StringBuilder log2 = new StringBuilder();
-    View view = new MockView2(log1, log2, 12345);
+    View view = new ClusterMockView(log1, log2, 12345);
     String s = "1.0 1.0\n2.0 2.0\n3.0 3.0\n4.0 4.0\n";
     Reader in = new StringReader(s);
     Controller controller = new DataFittingController(in, model, view);
@@ -181,7 +181,7 @@ public class DataFittingControllerTest {
     Model model = new TwoDPointClusterModelImpl(config);
     StringBuilder log1 = new StringBuilder();
     StringBuilder log2 = new StringBuilder();
-    View view = new MockView2(log1, log2, 12345);
+    View view = new ClusterMockView(log1, log2, 12345);
     String s = "1.01.0\n2.0 2.0\n3.0 3.0\n4.0 4.0\n";
     Reader in = new StringReader(s);
     Controller controller = new DataFittingController(in, model, view);
@@ -202,7 +202,7 @@ public class DataFittingControllerTest {
     Model model = new TwoDRegressionModelImpl();
     StringBuilder log1 = new StringBuilder();
     StringBuilder log2 = new StringBuilder();
-    View view = new MockView(log1, log2, 12345);
+    View view = new RegressionMockView(log1, log2, 12345);
     String s = "1.0 ,1.0\n2.0 2.0\n3.0 3.0\n4.0 4.0\n";
     Reader in = new StringReader(s);
     Controller controller = new DataFittingController(in, model, view);

@@ -10,8 +10,8 @@ import point.TwoDPoint;
 import abstraction.AbstractTwoDView;
 
 /**
- * This class represents a 2D implementation of the View for a LinearRegression model.
- * This class requires data to be of type List of Double to plot.
+ * This class represents a 2D implementation of the View for a LinearRegression model. This class
+ * requires data to be of type List of Double to plot.
  */
 public class TwoDRegressionViewImpl extends AbstractTwoDView implements View<List<Double>> {
 
@@ -19,8 +19,8 @@ public class TwoDRegressionViewImpl extends AbstractTwoDView implements View<Lis
   private int min_x;
 
   /**
-   * This creates a new TwoDRegressionViewImpl. It creates a new Image Plotter
-   * object which is used to plot the line.
+   * This creates a new TwoDRegressionViewImpl. It creates a new Image Plotter object which is used
+   * to plot the line.
    */
   public TwoDRegressionViewImpl() {
     super();
