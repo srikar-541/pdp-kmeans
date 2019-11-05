@@ -68,7 +68,7 @@ public class TwoDClusterViewImpl extends AbstractTwoDView implements View<Map<Po
         plotter.addPoint((int) Math.round(point.getX()), (int) Math.round(point.getY()), color);
       }
     }
-    write("output/cluster.png");
+    write("program_output/cluster.png");
   }
 
   /**

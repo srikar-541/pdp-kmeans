@@ -55,7 +55,7 @@ public class TwoDRegressionViewImpl extends AbstractTwoDView implements View<Lis
     int min_y = getY(this.min_x, constants);
     int max_y = getY(this.max_x, constants);
     plotter.addLine(this.min_x, min_y, this.max_x, max_y, Color.RED);
-    write("output/linear.png");
+    write("program_output/linear.png");
   }
 
   private int getY(double x, List<Double> constants) {
