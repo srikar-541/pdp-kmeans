@@ -115,7 +115,7 @@ public class ImagePlotter {
   }
 
   /**
-   * Add a circle to be drawn on to the image with the specified color
+   * Add a circle to be drawn on to the image with the specified color.
    *
    * @param x      the x coordinate of the center of the circle.
    * @param y      the y coordinate of the center of the circle.
