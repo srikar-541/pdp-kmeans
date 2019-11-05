@@ -24,6 +24,7 @@ public class Program {
 
   /**
    * Main method for running our program.
+   *
    * @param args String input as described above.
    * @throws FileNotFoundException if file specified by string path is not found.
    */
@@ -37,7 +38,8 @@ public class Program {
     Controller c;
     if (n == 0) {
       KMeansConfigurations config = KMeansConfigurations.getBuilder()
-              .clusterCount(3).iterations(100).ransac(10).threshold(0.01).distanceCalculator(Point::getEuclideanDistance)
+              .clusterCount(3).iterations(100).ransac(10)
+              .threshold(0.01).distanceCalculator(Point::getEuclideanDistance)
               .build();
       model = new TwoDPointClusterModelImpl(config);
       view = new TwoDClusterViewImpl();
