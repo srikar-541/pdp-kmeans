@@ -18,9 +18,9 @@ public class TwoDRegressionModelImplTest {
   @Test
   public void testOne() {
     List<Point> l = new ArrayList<>();
-    l.add(new TwoDPoint(1,1));
-    l.add(new TwoDPoint(2,2));
-    l.add(new TwoDPoint(3,3));
+    l.add(new TwoDPoint(1, 1));
+    l.add(new TwoDPoint(2, 2));
+    l.add(new TwoDPoint(3, 3));
     List<Double> result = r.fit(l);
     String s = "[-0.7071067811865475, 0.7071067811865476, -2.220446049250313E-16]";
     Assert.assertEquals(result.toString(), s);
@@ -29,10 +29,10 @@ public class TwoDRegressionModelImplTest {
   @Test
   public void testTwo() {
     List<Point> l = new ArrayList<>();
-    l.add(new TwoDPoint(2,7));
-    l.add(new TwoDPoint(3,9));
-    l.add(new TwoDPoint(12,27));
-    l.add(new TwoDPoint(9,  21));
+    l.add(new TwoDPoint(2, 7));
+    l.add(new TwoDPoint(3, 9));
+    l.add(new TwoDPoint(12, 27));
+    l.add(new TwoDPoint(9, 21));
     List<Double> result = r.fit(l);
     Assert.assertEquals("[0.8944271909999159, -0.4472135954999579, 1.341640786499874]",
             result.toString());
@@ -41,9 +41,9 @@ public class TwoDRegressionModelImplTest {
   @Test
   public void testThree() {
     List<Point> l = new ArrayList<>();
-    l.add(new TwoDPoint(0,7));
-    l.add(new TwoDPoint(0,9));
-    l.add(new TwoDPoint(0,27));
+    l.add(new TwoDPoint(0, 7));
+    l.add(new TwoDPoint(0, 9));
+    l.add(new TwoDPoint(0, 27));
     List<Double> result = r.fit(l);
     Assert.assertEquals("[1.0, -0.0, 0.0]", result.toString());
   }
@@ -51,9 +51,9 @@ public class TwoDRegressionModelImplTest {
   @Test
   public void testFour() {
     List<Point> l = new ArrayList<>();
-    l.add(new TwoDPoint(7,0));
-    l.add(new TwoDPoint(8,0));
-    l.add(new TwoDPoint(9,0));
+    l.add(new TwoDPoint(7, 0));
+    l.add(new TwoDPoint(8, 0));
+    l.add(new TwoDPoint(9, 0));
     List<Double> result = r.fit(l);
     Assert.assertEquals("[6.123233995736766E-17, 1.0, -4.898587196589413E-16]",
             result.toString());
@@ -62,12 +62,12 @@ public class TwoDRegressionModelImplTest {
   @Test
   public void testFive() {
     List<Point> l = new ArrayList<>();
-    l.add(new TwoDPoint(7,1));
-    l.add(new TwoDPoint(9,2));
-    l.add(new TwoDPoint(8,2));
-    l.add(new TwoDPoint(100,94));
-    l.add(new TwoDPoint(100,95));
-    l.add(new TwoDPoint(100,97));
+    l.add(new TwoDPoint(7, 1));
+    l.add(new TwoDPoint(9, 2));
+    l.add(new TwoDPoint(8, 2));
+    l.add(new TwoDPoint(100, 94));
+    l.add(new TwoDPoint(100, 95));
+    l.add(new TwoDPoint(100, 97));
     List<Double> result = r.fit(l);
     Assert.assertEquals("[0.7134701650687854, -0.7006856096401011, -4.544136846169508]",
             result.toString());
@@ -76,11 +76,11 @@ public class TwoDRegressionModelImplTest {
   @Test
   public void testSix() {
     List<Point> l = new ArrayList<>();
-    l.add(new TwoDPoint(7,10));
-    l.add(new TwoDPoint(9,4));
-    l.add(new TwoDPoint(8,100));
+    l.add(new TwoDPoint(7, 10));
+    l.add(new TwoDPoint(9, 4));
+    l.add(new TwoDPoint(8, 100));
     l.add(new TwoDPoint(0, 0));
-    l.add(new TwoDPoint(100,200));
+    l.add(new TwoDPoint(100, 200));
     List<Double> result = r.fit(l);
     Assert.assertEquals("[0.9120465529562205, -0.4100866801551546, 3.1346890004294394]",
             result.toString());
@@ -130,6 +130,18 @@ public class TwoDRegressionModelImplTest {
     l.add(new TwoDPoint(350.66, -122.46));
     List<Double> result = r.fit(l);
     Assert.assertEquals("[0.7872406207087065, 0.6166459317194677, -78.59240369508757]",
+            result.toString());
+  }
+
+  @Test
+  public void testNine() {
+    List<Point> l = new ArrayList<>();
+    l.add(new TwoDPoint(2.3, 6.9));
+    l.add(new TwoDPoint(2.9, 9.1));
+    l.add(new TwoDPoint(12.2, 24.5));
+    l.add(new TwoDPoint(8, 20));
+    List<Double> result = r.fit(l);
+    Assert.assertEquals("[0.8776747211956404, -0.479256803576282, 1.6755246744989485]",
             result.toString());
   }
 }

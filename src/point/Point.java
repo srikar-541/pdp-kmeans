@@ -56,7 +56,17 @@ public interface Point {
    */
   double multiplyDimensions();
 
+  /**
+   * Gives the numeric value of the x-coordinate of any TwoD implementation of a point.
+   *
+   * @return Double value of x-coordinate.
+   */
   double getX();
 
+  /**
+   * Gives the numeric value of the y-coordinate of any TwoD implementation of a point.
+   *
+   * @return Double value of y-coordinate.
+   */
   double getY();
 }

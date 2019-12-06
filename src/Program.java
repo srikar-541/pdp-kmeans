@@ -29,6 +29,8 @@ public class Program {
    * @throws FileNotFoundException if file specified by string path is not found.
    */
   public static void main(String[] args) throws FileNotFoundException {
+    System.out.println("Enter 0 for KMeans clustering and 1 for "
+            + "Linear Regression followed by data source path");
     Scanner sc = new Scanner(System.in);
     int n = sc.nextInt();
     BufferedReader bufferedReader;

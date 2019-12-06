@@ -21,6 +21,13 @@ abstract class PointClusterModel implements Model<Map<Point, List<Point>>> {
   private Double previousClusteringError;
   private final KMeansConfigurations config;
 
+  /**
+   * This constructor abstracts the object creation of child classes by taking config as input while
+   * creating any implementation of the cluster model.
+   *
+   * @param config The config object of the KMeans clustering which has fields like number of
+   *               clusters, number of ransac iterations etc(Ref KMeansConfigurations class)
+   */
   protected PointClusterModel(KMeansConfigurations config) {
     this.config = config;
   }
@@ -28,7 +35,7 @@ abstract class PointClusterModel implements Model<Map<Point, List<Point>>> {
   @Override
   public Map<Point, List<Point>> fit(List<Point> points) {
     if (config.getClusterCount() > points.size()) {
-      throw new IllegalArgumentException();
+      throw new IllegalArgumentException("Number of clusters greater than number of points.");
     }
     double ransacError = Double.POSITIVE_INFINITY;
     Map<Point, List<Point>> bestClustering = null;
